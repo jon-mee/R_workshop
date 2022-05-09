@@ -41,11 +41,12 @@ legend("topleft",pch=19,lty=1,col=c("green","blue","black"),legend=c("high ferti
 axis(1,at=c(1,2),labels=c("Mycorrhizae","No Mycorrhizae"))
 
 #ANOVA
-model<-lm(sqrt(tomato$Biomass)~tomato$Fertilizer*tomato$Myco)
+library(car)
+model<-glm(sqrt(tomato$Biomass)~tomato$Fertilizer*tomato$Myco)
 par(mfrow=c(2,2))
 plot(model) 
 par(mfrow=c(1,1))
-anova(model) #There is a significant effect of fertilizer and a significant interaction between fertilizer and mycorrhizae
+Anova(model,type="III",test.statistic="F") #There is a significant effect of fertilizer and a significant interaction between fertilizer and mycorrhizae
 
 #Tukey's test
 TukeyHSD(aov(model))
