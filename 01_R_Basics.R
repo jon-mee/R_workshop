@@ -114,3 +114,4 @@ subset(dd, Numbers != 3)
 #To import data into R, you need to tell R to "read" a file...
 #Try with the fish data (Chrosomus_length):
 fish <- read.csv(file.choose(),header=TRUE)
+fish <- read.csv("~/Documents/GitHub/R_workshop/Fertilizer_Experiment_1.csv",header=TRUE)
